@@ -1,26 +1,34 @@
-import React from 'react';
+import React, { createRef, FunctionComponent, SyntheticEvent } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Tooltip from './TooltipLiteFix/index.jsx';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component  {
+  render() {
+    const state = {...this.state };
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+        <Tooltip
+          followMouse={true}
+          direction="down"
+          content={<div>I am a tip</div>}>
+            <div className="add-tooltip"
+              style={{ 
+                backgroundColor: "#AAA",
+                color: "black",
+                borderRadius: 10,
+                padding: 10,
+                cursor: "context-menu",
+                }}>
+              Hover this to see tooltip ...
+            </div>
+        </Tooltip>
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;
