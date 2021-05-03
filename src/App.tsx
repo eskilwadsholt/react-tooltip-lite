@@ -10,21 +10,22 @@ class App extends React.Component  {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-        <Tooltip
-          followMouse={true}
-          direction="down"
-          content={<div>I am a tip</div>}>
-            <div className="add-tooltip"
-              style={{ 
-                backgroundColor: "#AAA",
-                color: "black",
-                borderRadius: 10,
-                padding: 10,
-                cursor: "context-menu",
-                }}>
-              Hover this to see tooltip ...
-            </div>
-        </Tooltip>
+          <Tooltip
+            followMouse={true}
+            direction="down"
+            content={<div>I am a tip</div>}>
+              <div className="add-tooltip"
+                style={{ 
+                  backgroundColor: "#AAA",
+                  color: "black",
+                  borderRadius: 10,
+                  padding: 10,
+                  cursor: "context-menu",
+                  }}>
+                Hover this to see tooltip ...{"\n"}
+                <a href="https://github.com/eskilwadsholt/react-tooltip-lite">github repo</a>
+              </div>
+          </Tooltip>
         </header>
       </div>
     );
