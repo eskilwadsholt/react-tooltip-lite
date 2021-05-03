@@ -73,7 +73,7 @@ function getUpDownPosition(tip, target, state, direction, alignMode, props) {
 
     // move left position if follow mouse is on
     if (followMouse) {
-      left += state.mouseCoords.x - halfTargetWidth;
+      left = scrollLeft + state.mouseCoords.x - Math.round(tipWidth / 2);
     }
 
     if (direction === 'up') {
@@ -213,10 +213,10 @@ function getArrowStyles(target, tip, direction, state, props) {
 
 
       positionStyles.left = (state.showTip && tip)
-                            ? (targetRect.left + scrollLeft + halfTargetWidth) - props.arrowSize
+                            ? (followMouse)
+                            ? scrollLeft + state.mouseCoords.x - props.arrowSize
+                            : (targetRect.left + scrollLeft + halfTargetWidth) - props.arrowSize
                             : '-10000000px';
-
-      if (followMouse && state.showTip && tip) positionStyles.left += state.mouseCoords.x - halfTargetWidth;
 
       positionStyles.top = (targetRect.top + scrollTop) - arrowSpacing;
       break;
@@ -233,10 +233,10 @@ function getArrowStyles(target, tip, direction, state, props) {
       }
 
       positionStyles.left = (state.showTip && tip)
-                            ? (targetRect.left + scrollLeft + halfTargetWidth) - props.arrowSize
+                            ? (followMouse)
+                            ? scrollLeft + state.mouseCoords.x - props.arrowSize
+                            : (targetRect.left + scrollLeft + halfTargetWidth) - props.arrowSize
                             : '-10000000px';
-
-      if (followMouse && state.showTip && tip) positionStyles.left += state.mouseCoords.x - halfTargetWidth;
 
       positionStyles.top = (targetRect.bottom + scrollTop + arrowSpacing) - props.arrowSize;
       break;

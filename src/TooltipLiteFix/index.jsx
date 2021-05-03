@@ -187,8 +187,8 @@ class Tooltip extends React.Component {
     const native = e.nativeEvent;
     this.setState({
       mouseCoords: {
-        x: native.offsetX,
-        y: native.offsetY,
+        x: native.clientX,
+        y: native.clientY,
       }
     });
   }
