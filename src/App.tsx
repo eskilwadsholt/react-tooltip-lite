@@ -1,4 +1,4 @@
-import React, { createRef, FunctionComponent, SyntheticEvent } from 'react';
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Tooltip from './TooltipLiteFix/index.jsx';
